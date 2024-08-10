@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Bruce DuckyScript</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="icon" href="img/BruceIcon.png" type="image/x-icon">
+	</head>
+	<body>
+		<div class="fixed-header">								
+			<b>Output:</b><br />
+			<font size="2" style="color:#e6e9e5"><i>Your badUSB payload will be here. At the end of the process, click "Save", and the download will automatically start. You can also edit manually the script before download.</i></font>
+			<textarea id="output" rows="4" cols="50" placeholder="Here your Payload..."></textarea>
+			<div class="blocchetto btn">
+				<button id="tastoSalva" class="tasto-save">Save As...</button>
+			</div>
+		</div>
+		<div class="logo">
+			<br /><br />
+			<center><img src="img/BruceBanner.png" width="380" height="auto" alt="Logo"></center>
+		</div>
+		
+		<div class="button-container">
+			<button onclick="window.location.href='indexPT-BR.html'">PT-BR</button>
+		</div>
+		<div class="blocco1">
+			<table border="0" width="100%">
+				<tr valign="top">
+					<td width="50%">
+			<div class="blocchetto">
+				<b>Change ID (VID/PID):</b><br/>
+			</div>
+			<div class="blocchetto">
+				<font size="2" style="color:#bbbdba"><i>Vendor<mark>ID</mark> an Product<mark>ID</mark> are codes used to identify your keyboard. <b><u>ONLY</u></b> if you are targeting a <b>macOS</b>, remember to insert the <mark>ID</mark> command, to change <mark>VID</mark> / <mark>PID</mark>, at the top of your code.</i></font>
+			</div>
+			<div class="blocchetto btn">
+			
+				<button class="bigButtON" onclick="inserisciEVai('ID 05ac:021e Apple:Keyboard')">Change VID/PID (macOS ONLY)</button>
+			</div>
+			<div class="blocchetto">
+				<font size="2" style="color:#bbbdba"><i>* You can set custom <mark>ID</mark> of Flipper USB HID device. <mark>ID</mark> command should be in the first line of script, it is executed before script run. Unless your target is a macOS (which requires to specify it at the first line of the payload), VID and PID are hex codes and are mandatory, Manufacturer and Product are text strings and are optional.</i></font>
+			</div>
+		</div>
+		<div class="blocco23">
+			<!-- Div para Remark (REM) -->
+			<div class="remark-section">
+				<b>Remark (REM):</b><br />
+				<font size="2" style="color:#bbbdba"><i><mark>REM</mark> is short for Remark and adds a comment to the payload, like a title, the target OS, the functioning of a command or the author's name.</i></font>
+				<div class="blocchetto">
+					<textarea id="input" rows="4" cols="50" placeholder="Type your text here."></textarea>
+				</div>
+				<div class="blocchetto btn">
+					<table border="0" width="100%">
+						<tr valign="top">
+							<td width="63%">
+								<button id="bottoneRemark">Write Remark</button>
+							</td>							
+						</tr>
+					</table>
+				</div>
+			</div>
+		
+			<!-- Div para String (STRING/ALTCODE) -->
+			<div class="string-section">
+				<b>String (STRING/ALTCODE):</b><br />
+				<font size="2" style="color:#bbbdba"><i><mark>STRING</mark> injects keystrokes, or "types", the given characters (a-z, 0-9, punctuation & specials).<br />
+					<mark>ALTCODE</mark> is used instead of <mark>STRING</mark>, to print text string using "ALT+Numpad" method. It works even if non-US keyboard layout is selected</i></font>
+				<div class="blocchetto">
+					<textarea id="inputz" rows="4" cols="50" placeholder="Type your text here."></textarea>
+				</div>
+				<div class="blocchetto btn">
+					<table border="0" width="100%">
+						<tr valign="top">
+							<td width="57%">
+								<button id="bottoneString">Write String</button>
+							</td>
+							<td width="10%">
+								<button id="bottoneAltcode" style="padding-top: 3px; padding-bottom: 10px;">Write Altcode</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		<div class="blocco456">
+			<div class="delays-section">
+				<b>Delays:</b><br />
+				<font size="2" style="color:#bbbdba"><i><mark>DELAY</mark> is expressed in milliseconds (1 sec. = 1000 ms.). The minimum is 100 (0.1 sec.). It increases/decreases by 100 milliseconds each click.<br />
+				<mark>DEFAULT_DELAY</mark> / <mark>DEFAULTDELAY</mark> add delay before every next command.</i></font>
+				<div class="blocchetto">
+					<button onclick="inserisciEVai('DELAY ' + document.getElementById('delayInput').value)">DELAY</button>
+					<input id="delayInput" type="number" value="1000" min="100" step="100">
+				</div>
+				<div class="blocchetto">
+					<button onclick="inserisciEVai('DEFAULT_DELAY ' + document.getElementById('defaultDelayInput').value)">DEFAULT DELAY</button>
+					<input id="defaultDelayInput" type="number" value="1000" min="100" step="100">
+				</div>
+				<div class="blocchetto">
+					<button class="bigButtON" onclick="inserisciEVai('WAIT_FOR_BUTTON_PRESS')">BUTTON_PRESS</button>
+				</div>
+			</div>
+		
+			<div class="misc-commands-section">
+				<b>Misc. Commands:</b><br />
+				<font size="2" style="color:#bbbdba"><i><mark>REPEAT</mark> is used to repeat the previous command. It expects the number of additional repeats as parameter.<br />
+				<mark>ALTCHAR</mark> is to display single <mark>ALT+Numpad</mark> Keys (on Windows), or <mark>ALT</mark><mark>(ALT+SHIFT)</mark> Keys (on macOS).<br />
+				Click
+				</i></font><font size="2" style="color:#bbbdba"><a href="https://www.alt-codes.net" target="new">HERE</a></font><font size="2" style="color:#bbbdba"><i> for a complete list of available codes for ALT characters.</i></font>
+				<div class="blocchetto btn">
+					<button onclick="inserisciEVai('REPEAT')">REPEAT</button>
+				</div>
+				<div class="blocchetto">
+					<button id="bottoneAltchar">ALTCHAR</button>
+					<input id="charInput" type="number" maxlength="4" placeholder="Code">
+				</div>
+			</div>
+			
+			<div class="modifier-keys-section">
+				<b>Modifier Keys:</b><br />
+				<font size="2" style="color:#bbbdba"><i><mark>GUI</mark> is used for both: the <mark>WINDOWS(&#8862;)</mark> key on Windows, and the <mark>CMD(&#8984;)</mark> key on macOS. (Targeting Windows, you can use <mark>WINDOWS</mark> key or <mark>GUI</mark> key to get the same result). <mark>CONTROL</mark> and <mark>CTRL</mark> as well. If you need to use more than one "modifier key" at once, use the preloaded "Keys Combos", which you'll find just below these Modifier keys.</i></font>
+				<div class="blocchetto btn">
+					<button onclick="inserisciEVai('GUI')">GUI &#8862; / &#8984;</button>
+					<button onclick="inserisciEVai('WINDOWS')">WINDOWS &#8862;</button>
+				</div>
+				<div class="blocchetto">
+					<button onclick="inserisciEVai('SHIFT')">SHIFT &#8679;</button>
+					<button onclick="inserisciEVai('CTRL')">CTRL &#8963;</button>
+					<button onclick="inserisciEVai('ALT')">ALT &#8997;</button>
+				</div>
+			</div>
+		
+		</div>
+		
+		<div class="blocco78">
+			<table border="0" width="100%">
+				<tr valign="top">
+					<td width="50%" style="padding-right: 50px;">
+						<b>Combos Keys:</b><br />
+						<font size="2" style="color:#bbbdba"><i><b><u>ONLY</u></b> on <b>Windows</b>: <mark>CTRL-ALT</mark> is the same as to type <mark>ALTgr</mark> (ALT Graphic) and you can use both <mark>ALT-WINDOWS</mark> or <mark>ALT-GUI</mark>, and <mark>WINDOWS-SHIFT</mark> or <mark>GUI-SHIFT</mark> to get the exact same result.</i></font>
+						<div class="blocchetto btn">
+							<button onclick="inserisciEVai('CTRL-ALT')">CTRL-ALT</button>
+							<button onclick="inserisciEVai('CTRL-SHIFT')">CTRL-SHIFT</button>
+							<button onclick="inserisciEVai('ALT-SHIFT')">ALT-SHIFT</button>
+						</div>
+						<div class="blocchetto">
+							<button onclick="inserisciEVai('ALT-GUI')">ALT-GUI</button>
+							<button onclick="inserisciEVai('GUI-SHIFT')">GUI-SHIFT</button>
+						</div>
+					</td>
+					<td width="50%">
+						<b>Arrow Keys / Cursor:</b><br />
+						<font size="2" style="color:#bbbdba"><i><mark>UP</mark> is the same as <mark>UPARROW</mark>. <mark>DOWN</mark> is the same ad <mark>DOWNARROW</mark>. <mark>LEFT</mark> is the same as <mark>LEFTARROW</mark>. <mark>RIGHT</mark> is the same as <mark>RIGHTARROW</mark>.</i></font>
+						<div class="blocchetto">
+							<table border="0" width="100%">
+								<tr valign="bottom">
+									<td width="33%"></td>
+									<td><button id="arrowButton" onclick="inserisciEVai('UPARROW')">&#8593;</button></td>
+									<td width="33%"></td>
+								</tr>
+							</table>
+						</div>
+						<div class="blocchetto">
+							<button onclick="inserisciEVai('LEFTARROW')">&#8592;</button>
+							<button onclick="inserisciEVai('DOWNARROW')">&#8595;</button>
+							<button onclick="inserisciEVai('RIGHTARROW')">&#8594;</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="blocco9">
+			<table border="0" width="100%">
+				<tr valign="top">
+					<td width="50%">
+			<b>Main Control Keys:</b>
+			<div class="blocchetto">
+				<button onclick="inserisciEVai('ENTER')">ENTER &#8629;</button>
+				<button onclick="inserisciEVai('SPACE')">SPACE &#9251;</button>
+				<button onclick="inserisciEVai('BACKSPACE')">BACK SPACE &#9003;</button>
+			</div>
+			<div class="blocchetto">
+				<button onclick="inserisciEVai('TAB')">TAB &#8677;</button>
+				<button onclick="inserisciEVai('CAPSLOCK')">CAPS LOCK &#8682;</button>
+				<button onclick="inserisciEVai('DELETE')">DELETE &#8998;</button>
+			</div>
+		</div>
+		<div class="blocco10">
+			<table border="0" width="100%">
+				<tr valign="top">
+					<td width="50%">
+			<b>Others Control Keys:</b><br />
+			<font size="2" style="color:#bbbdba"><i>* The magic <mark>SysRq</mark> key is a key combination understood by the Linux kernel, which allows the user to perform various low-level commands regardless of the system's state. It is often used to recover from freezes, or to reboot a computer without corrupting the filesystem. (<a href="https://en.wikipedia.org/wiki/Magic_SysRq_key">Wikipedia</a>)</i></font>
+			<div class="blocchetto btn">
+				<button onclick="inserisciEVai('SYSRQ')">SysRq (Linux ONLY)</button>
+				<button onclick="inserisciEVai('PRINTSCREEN')">PRINT SCREEN</button>
+				<button onclick="inserisciEVai('ESC')">ESC &#9099;</button>
+				<button onclick="inserisciEVai('PAGEUP')">PAGE UP &#8670;</button>
+				<button onclick="inserisciEVai('PAGEDOWN')">PAGE DOWN &#8671;</button>
+			</div>
+			<div class="blocchetto">
+				<button onclick="inserisciEVai('NUMLOCK')">NUM LOCK</button>
+				<button onclick="inserisciEVai('SCROLLOCK')">SCROLL LOCK</button>
+				<button onclick="inserisciEVai('HOME')">HOME &#8598;</button>
+				<button onclick="inserisciEVai('END')">END &#8600;</button>
+				<button onclick="inserisciEVai('INSERT')">INSERT</button>
+			</div>
+			<div class="blocchetto">
+				<button onclick="inserisciEVai('APP')">APP</button>
+				<button onclick="inserisciEVai('BREAK')">BREAK</button>
+				<button onclick="inserisciEVai('PAUSE')">PAUSE</button>
+				<button onclick="inserisciEVai('MENU')">MENU</button>
+				<button onclick="inserisciEVai('ESCAPE')">ESCAPE</button>
+			</div>
+		</div>
+		<div class="blocco11">
+			<table border="0" width="100%">
+				<tr valign="top">
+					<td width="50%">
+			<b>Function Keys:</b>
+			<div class="blocchetto">
+				<button onclick="inserisciEVai('F1')">F1</button>
+				<button onclick="inserisciEVai('F2')">F2</button>
+				<button onclick="inserisciEVai('F3')">F3</button>
+				<button onclick="inserisciEVai('F4')">F4</button>
+				<button onclick="inserisciEVai('F5')">F5</button>
+				<button onclick="inserisciEVai('F6')">F6</button>
+				<button onclick="inserisciEVai('F7')">F7</button>
+				<button onclick="inserisciEVai('F8')">F8</button>
+				<button onclick="inserisciEVai('F9')">F9</button>
+				<button onclick="inserisciEVai('F10')">F10</button>
+				<button onclick="inserisciEVai('F11')">F11</button>
+				<button onclick="inserisciEVai('F12')">F12</button>
+			</div>
+		</div>
+		<div class="blocco fondo">
+			<b></b>
+			<div class="blocchetto"></div>
+		</div>
+
+		
+<script src="ducky.js"></script>
+
+	</body>
+</html>

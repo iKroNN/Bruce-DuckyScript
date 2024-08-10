@@ -1,0 +1,374 @@
+* {
+  box-sizing: border-box;
+}
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 3%; /* Padding igual em todos os lados */
+  margin: 0 auto; /* Centraliza o conteúdo */
+  color: #14f7ff; /* COR DOS TÍTULOS DE CADA CATEGORIA */
+  background-color: #41054f;
+  box-sizing: border-box; /* Inclui padding e borda na largura total */
+  max-width: 100%; /* Garante que o body não ultrapasse 100% da largura da tela */
+  overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+}
+
+mark { /* DESTAQUES DE ID */
+font-weight: bold;
+color: #d403c3;
+background-color: #41054f;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2, h3 {
+  margin-top: 10px;
+}
+
+a:link {
+font-weight: bold;
+text-decoration: none;
+color: #d4d1dd;
+}
+
+a:hover {
+font-weight: bold;
+text-decoration: none;
+color: #ffffff;
+}
+
+a:active {
+font-weight: bold;
+text-decoration: none;
+color: #07f950;
+}
+
+a:visited {
+font-weight: bold;
+text-decoration: none;
+color: #0084b4;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c1a5ee;
+  border-radius: 20px;
+  resize: vertical;
+  background-color: #5e31a7; /* Cor DA CAIXA DE TEXTO */
+  color: #ffffff;
+}
+
+textarea::placeholder {
+  color: #9ea09e; /* Cor do texto do placeholder */
+}
+
+
+.blocco {
+  margin-bottom: 20px;        
+}
+ 
+
+.blocco23 {
+  display: flex;
+  justify-content: space-between; /* Espaço entre as divs */
+  padding-top: 40px;
+}
+
+.blocco456 {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
+}
+.blocco78 {
+  padding-top: 40px;
+}
+
+.blocco9 {
+  padding-top: 40px;
+}
+
+.blocco10 {           /* OTHERS CONTROL KEYS */
+  width: 5;
+  height: 50px; /* Altura do conteúdo */
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border-width: 5px;
+  padding: 0px; 
+  padding-top: 40px; 
+}
+
+.blocco11 {             /* FUNTION KEYS*/
+  width: 5;
+  height: 50px; /* Altura do conteúdo */
+  margin-bottom: 250px;
+  border-radius: 10px;
+  border-width: 5px;
+  padding: 0px;
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+
+.delays-section, .misc-commands-section, .modifier-keys-section {
+  width: 32%; /* Ajuste a largura conforme necessário */
+}
+
+
+.remark-section, .string-section {
+  width: 48%; /* Ajuste a largura conforme necessário */
+}
+
+.blocchetto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15px, 1fr));
+  gap: 5px;
+  
+}
+
+.button-container {
+  margin-top: 20px; /* Ajuste a margem conforme necessário */
+  text-align: center;
+}
+.blocchetto.btn {
+  padding: 0px;
+}
+
+.button-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #5b107e;
+  color: rgb(170, 170, 170);
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  display: inline-block; /* Permite que o botão fique centralizado */
+}
+
+
+.button-container button:hover {
+  background-color: #8f31a7;
+}
+
+
+
+
+.blocchetto.arrows {
+padding-top: 20px;
+}
+
+.blocchetto.btn {
+padding-top: 3px;
+}
+
+.blocchetto button {
+  width: 100%;
+  height: 40px;
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+  background-color: #8e53b6b7;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow:  2px 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.blocchetto button:hover {
+  background-color: #7d1aee;
+  color: rgb(255, 255, 255);
+}
+
+.blocchetto input[type="number"],
+.blocchetto input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #721ae6;
+  border-radius: 20px;
+  background-color: #5e31a7; /* Cor de fundo do input */
+color: #ffffff; /* Cor do texto dentro do input */
+}
+
+
+
+#bottoneString,
+#bottoneAltcode,
+#bottoneRemark,
+#bottoneAltchar,
+#tastoSalva {
+  padding: 10px;
+  border: none;
+  background-color: #8e53b6b7;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+#bottoneString:hover, 
+#bottoneAltcode:hover,
+#bottoneRemark:hover, 
+#bottoneAltchar:hover,
+#tastoSalva:hover {
+  background-color: #5e31a7; /* COR HOVER DE FUNDO BOTÕES*/
+  color: rgb(255, 255, 255);
+}
+
+.blocchetto > input[type="number"],
+.blocchetto > input[type="text"],
+.blocchetto > button {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.blocchetto input[type="number"]::placeholder {
+  color: #e2d2cd; /* Cor do texto do placeholder, se aplicável */
+}
+
+.blocchetto .bigButtON {
+  width: 100%;
+  white-space: normal;
+  line-height: 1.2;
+  border-radius: 20px;
+}
+
+.fixed-header {
+  margin-top: -50px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Reduz a largura para 90% da tela */
+  background-color: #6a0aca;
+  padding: 5px; /* Diminui o padding para reduzir o espaço interno */
+  box-shadow: -2px -14px 24px -8px #6d24ccbf;
+  z-index: 9999;
+  height: 190px; /* Ajusta a altura para um valor menor */
+  margin: 0 auto 0 auto; /* Centraliza a div horizontalmente */
+}
+
+
+.tasto-save {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  /* margin-bottom: 0px; */
+  
+}
+
+/* Media query para ajustar o layout em telas menores */
+@media screen and (max-width: 600px) {
+
+  
+    
+   
+  .blocco1 {
+    width: 102%; /* Centraliza o titulo change ID */
+  }
+  .button-container {
+    width: 104%; /* Ajusta a largura do botão PT-BR */
+    margin-bottom: 10px;
+  }
+  .blocco23 {
+    width: 101%; /* Centraliza o titulo Remak e String */
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 40px; /* Distância da div up/down */
+    margin-left: -1%;
+  }
+
+  .blocco456 {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;   
+  }
+
+  .delays-section, .misc-commands-section, .modifier-keys-section {
+    width: 100%; /* Ajusta a largura para 100% da tela */
+    margin-bottom: 10px; /* Espaçamento entre as seções */
+    margin-top: 30px;
+  }
+
+  .misc-commands-section {
+    width: 100%; /* Estica a largura para 100% */
+     /* Centraliza a div horizontalmente */
+    /* padding-left: px; /* Adiciona um pouco de espaço interno à esquerda 
+    padding-right: px; Adiciona um pouco de espaço interno à direita */
+    /* box-sizing: border-box; /* Garante que o padding seja incluído na largura total */
+  }
+  
+  /* .delays-section{
+    padding-right: px;
+  } */
+
+
+  /* .modifier-keys-section {
+    width: px;
+  } */
+
+  .blocco78 {
+    width: 102%; /* Centraliza o titulo Combos e Arrow */ 
+    margin-left: -2%;
+  }
+  .blocco9 {    /* Main Control Keys*/
+    width: 101%; /* Centraliza o titulo Main Control*/
+    padding-top: 20px;
+  }
+  .blocco10 {
+    width: 100%; /* OTHERS CONTROL*/ 
+    left: 5px;  
+    padding-top: 20px;
+  }
+  .blocco11 {
+    width: 102%; /* FUNCION KEYS*/
+    margin-bottom: 250px;
+    margin-left: -2%;
+    /* padding-top: 0px;    */
+  } 
+  
+  .fixed-header {
+    /* height: 190px; /* Ajusta a altura */
+    width: 99.8%; /* Ajusta a largura para 90% da largura da tela ==============ARRUMAR===================*/
+    left: 0.2%; /* Centraliza o .fixed-header horizontalmente */
+    padding: 0%; /* Ajusta o padding para telas menores */
+    box-shadow: -2px -10px 18px -5px #6d24ccbf; /* Ajusta o box-shadow para não ficar excessivo */
+    font-size: 12px; /* Ajusta o tamanho da fonte para telas menores */
+    margin-bottom: 19px;
+    margin: 0 auto 0 auto; /* Centraliza a div horizontalmente */
+  }  
+  
+}
+
+
+/* Media Query para telas pequenas */
+@media (max-width: 600px) {
+  body {
+    padding: 5%; /* Aumenta o padding em telas menores para espaçamento */
+    margin: 0 auto; /* Centraliza o conteúdo */
+  }
+}
+
+/* Media Query para telas grandes */
+@media (min-width: 1200px) {
+  body {
+    padding: 1%; /* Reduz o padding em telas maiores */
+    margin: 0 auto; /* Centraliza o conteúdo */
+  }
+}
+
+/* Estilos específicos para dispositivos móveis */
+@media only screen and (max-width: 600px) {
+  #bottoneString {
+      padding-top: 0px; /* Adiciona padding no topo */
+      padding-bottom: 5px; /* Adiciona padding na parte inferior, ajuste conforme necessário */
+      padding-left: 10px; /* Adiciona padding à esquerda, ajuste conforme necessário */
+      padding-right: 10px; /* Adiciona padding à direita, ajuste conforme necessário */
+      text-align: center; /* Centraliza o texto no botão */
+      display: inline-block; /* Garante que o padding afete o botão como esperado */
+  }
+}
